@@ -1,0 +1,24 @@
+
+<app-header></app-header>
+
+
+
+<table  class='col-md-10'>
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone No.</th>
+    <th>ZipCode</th>
+  </thead>
+  <tbody >
+    <tr *ngFor = 'let user of users;
+    index as i'  >
+      <td>{{i+1}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.address.zipcode}}</td>
+    </tr>
+  </tbody>
+</table>
