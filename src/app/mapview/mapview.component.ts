@@ -1,3 +1,5 @@
+import { DetailsComponent } from './../details/details.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../user.service';
 import { HttpClient } from '@angular/common/http';
@@ -13,22 +15,45 @@ export class MapviewComponent implements OnInit {
 
 
 
-  users: User;
+
+   users: User ;
+ public rowId;
   constructor(private http: HttpClient,
-              private service: UserService ) { }
+              private service: UserService,
+              private dialog : MatDialog,
+               ) { }
 
 
   ngOnInit(): void {
     this.showUser();
+
   }
+
+
 
   showUser(){
     this.service.getUsers().subscribe((data: User) => {
       // this.users = {...data };
       console.log(data);
       this.users = data;
+
+
     });
 
     }
 
-}
+    onView(row){
+      const dialogCOnfig =new MatDialogConfig();
+      dialogCOnfig.disableClose=true;
+      dialogCOnfig.autoFocus= true;
+      dialogCOnfig.width= "30%";
+      this.dialog.open(DetailsComponent, dialogCOnfig);
+
+
+    }
+    }
+
+// onClose(){
+//   this.dialogRef.close();
+// }
+

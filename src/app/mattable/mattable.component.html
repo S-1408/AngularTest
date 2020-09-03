@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container">
+  <mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <span>User Details</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="users" >
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let users ">{{users.name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Email">
+        <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+        <mat-cell *matCellDef="let users ">{{users.email}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Phone">
+        <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+        <mat-cell *matCellDef="let users ">{{users.phone}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ZipCode">
+        <mat-header-cell *matHeaderCellDef>ZipCode</mat-header-cell>
+        <mat-cell *matCellDef="let users ">{{users.address.zipcode}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Action">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let row ">
+          <button mat-button mat-icon-button ><mat-icon>launch</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef ="displayColumn"></mat-header-row>
+      <mat-row *matRowDef="let row;columns:displayColumn"></mat-row>
+
+    </mat-table>
+  </div>
+</div>
+

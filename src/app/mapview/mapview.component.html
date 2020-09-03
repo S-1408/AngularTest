@@ -10,6 +10,7 @@
     <th>Email</th>
     <th>Phone No.</th>
     <th>ZipCode</th>
+    <th>Action</th>
   </thead>
   <tbody >
     <tr *ngFor = 'let user of users;
@@ -19,6 +20,11 @@
       <td>{{user.email}}</td>
       <td>{{user.phone}}</td>
       <td>{{user.address.zipcode}}</td>
+      <td>
+        <button class="btn btn-info" (click)="onView()">View</button>
+      </td>
     </tr>
   </tbody>
 </table>
+
+
