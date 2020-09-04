@@ -17,6 +17,7 @@ export class MapviewComponent implements OnInit {
 
 
    users: User ;
+   id;
  public rowId;
   constructor(private http: HttpClient,
               private service: UserService,
@@ -42,14 +43,15 @@ export class MapviewComponent implements OnInit {
 
     }
 
-    onView(row){
+    onView(user){
       const dialogCOnfig =new MatDialogConfig();
       dialogCOnfig.disableClose=true;
       dialogCOnfig.autoFocus= true;
       dialogCOnfig.width= "30%";
-      this.dialog.open(DetailsComponent, dialogCOnfig);
+      dialogCOnfig.data = user;
+      this.dialog.open(DetailsComponent, dialogCOnfig );
 
-
+      console.log(user);
     }
     }
 

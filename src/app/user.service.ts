@@ -23,7 +23,10 @@ id : number;
     name:new FormControl(''),
     email:new FormControl(''),
     phone:new FormControl(''),
-    zipCode: new FormControl('')
+    zipcode: new FormControl('')
+    //  address: new FormGroup({
+    // zipcode:new FormControl('')
+    //  })
   });
   getUsers(){
     return this.http.get<User>(this.baseURL);
